@@ -28,7 +28,11 @@ public enum ExceptionCode {
     PASSWORD_MISMATCH(401, "비밀번호가 일치하지 않습니다."),
     PASSWORD_DUPLICATED(400, "이미 사용 중인 비밀번호입니다."),
     RECIPE_STEP_NOT_FOUND(404, "레시피 스텝이 존재하지 않습니다."),
-    RECIPE_STEP_EXISTS(409, "레시피 스텝이 이미 존재합니다.");
+    RECIPE_STEP_EXISTS(409, "레시피 스텝이 이미 존재합니다."),
+    INGREDIENT_NOT_FOUND(404, "재료가 존재하지 않습니다."),
+    INGREDIENT_EXISTS(409, "재료가 이미 존재합니다."),
+    INGREDIENT_TYPE_NOT_FOUND(404, "재료 타입이 존재하지 않습니다."),
+    INGREDIENT_TYPE_NOT_MATCH(409, "재료 타입이 일치하지 않습니다.");
 
 
 
