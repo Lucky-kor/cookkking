@@ -1,5 +1,6 @@
 package com.springboot.recipeboard.entity;
 
+import com.springboot.audit.BaseEntity;
 import com.springboot.recipestep.entity.RecipeStep;
 import com.springboot.recipestepdetail.entity.RecipeStepDetail;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-public class RecipeBoardStep {
+public class RecipeBoardStep extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long recipeBoardStepId;

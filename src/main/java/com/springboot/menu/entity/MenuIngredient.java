@@ -1,5 +1,6 @@
 package com.springboot.menu.entity;
 
+import com.springboot.audit.BaseEntity;
 import com.springboot.ingredient.entity.Ingredient;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-public class MenuIngredient {
+public class MenuIngredient extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long menuIngredientId;

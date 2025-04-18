@@ -1,8 +1,6 @@
-package com.springboot.recipestep.repository;
+package com.springboot.ingredient.repository;
 
 import com.springboot.ingredient.entity.Ingredient;
-import com.springboot.ingredient.entity.MainIngredient;
-import com.springboot.ingredient.entity.SeasoningIngredient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

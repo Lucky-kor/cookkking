@@ -5,7 +5,7 @@ import com.springboot.dto.SingleResponseDto;
 import com.springboot.ingredient.dto.IngredientDto;
 import com.springboot.ingredient.entity.Ingredient;
 import com.springboot.ingredient.mapper.IngredientMapper;
-import com.springboot.recipestep.service.IngredientService;
+import com.springboot.ingredient.service.IngredientService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

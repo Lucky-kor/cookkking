@@ -4,11 +4,7 @@ import com.springboot.ingredient.dto.IngredientDto;
 import com.springboot.ingredient.entity.Ingredient;
 import com.springboot.ingredient.entity.MainIngredient;
 import com.springboot.ingredient.entity.SeasoningIngredient;
-import com.springboot.recipestep.repository.IngredientRepository;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.BeanMapping;
-import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.util.List;
 

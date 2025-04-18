@@ -38,7 +38,7 @@ public class RecipeBoard extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private RecipeStatus recipeStatus = RecipeStatus.RECIPE_PUBLIC;
+    private RecipeStatus recipeStatus;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -55,8 +55,6 @@ public class RecipeBoard extends BaseEntity {
     @OneToMany(mappedBy = "recipeBoard", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Bookmark> bookmarks = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "recipeBoard", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-//    private List<RecipeStepDetail> recipeStepDetails = new ArrayList<>();
     @OneToMany(mappedBy = "recipeBoard", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<RecipeBoardStep> recipeBoardSteps = new ArrayList<>();
 
@@ -90,13 +88,6 @@ public class RecipeBoard extends BaseEntity {
             menu.setRecipeBoard(this);
         }
     }
-
-//    public void setRecipeStep(RecipeStepDetail recipeStepDetail) {
-//        recipeStepDetails.add(recipeStepDetail);
-//        if (recipeStepDetail.getRecipeBoard() != this) {
-//            recipeStepDetail.setRecipeBoard(this);
-//        }
-//    }
 
     public void setRecipeBoardIngredient(RecipeBoardIngredient recipeBoardIngredient) {
         recipeBoardIngredients.add(recipeBoardIngredient);

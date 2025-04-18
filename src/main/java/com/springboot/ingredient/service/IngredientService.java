@@ -1,11 +1,9 @@
-package com.springboot.recipestep.service;
+package com.springboot.ingredient.service;
 
 import com.springboot.exception.BusinessLogicException;
 import com.springboot.exception.ExceptionCode;
 import com.springboot.ingredient.entity.Ingredient;
-import com.springboot.ingredient.entity.MainIngredient;
-import com.springboot.ingredient.entity.SeasoningIngredient;
-import com.springboot.recipestep.repository.IngredientRepository;
+import com.springboot.ingredient.repository.IngredientRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

@@ -1,5 +1,6 @@
 package com.springboot.recipeboard.dto;
 
+import com.springboot.ingredient.dto.IngredientDto;
 import com.springboot.recipeboard.entity.RecipeBoard;
 import com.springboot.recipestepdetail.dto.RecipeStepDetailDto;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -38,12 +39,17 @@ public class RecipeBoardDto {
         @NotBlank(message = "대표 사진은 필수입니다.")
         private String image;
 
-        @Schema(description = "레시피 상태", example = "RECIPE_PUBLIC")
-        private RecipeBoard.RecipeStatus recipeStatus = RecipeBoard.RecipeStatus.RECIPE_PUBLIC;
+        private String content;
 
-        @Schema(description = "레시피 단계 본문 리스트")
-        @Size(min = 1, message = "레시피 본문은 최소 1단계 이상 작성해야 합니다.")
-        private List<RecipeStepDetailDto> recipeSteps;
+        private String recipeTime;
+
+        @Schema(description = "레시피 상태", example = "RECIPE_PUBLIC")
+        private RecipeBoard.RecipeStatus recipeStatus;
+
+        private List<RecipeBoardStepDto.Post> recipeBoardSteps;
+
+        private long menuId;
+        private List<IngredientDto.IdRequest> ingredients;
     }
 
     @Getter
@@ -58,14 +64,20 @@ public class RecipeBoardDto {
         )
         private String title;
 
+        private String menuName;
+
         @Schema(description = "레시피 대표 사진 URL", example = "https://updated-image-url.jpg")
         private String image;
+
+        private String content;
+
+        private String recipeTime;
 
         @Schema(description = "레시피 상태", example = "RECIPE_PRIVATE")
         private RecipeBoard.RecipeStatus recipeStatus;
 
         @Schema(description = "레시피 단계 본문 리스트")
-        private List<RecipeStepDetailDto> recipeSteps;
+        private List<RecipeBoardStepDto.Post> recipeBoardSteps;
     }
 
     @Getter
@@ -81,8 +93,12 @@ public class RecipeBoardDto {
         @Schema(description = "메뉴 이름", example = "공기밥")
         private String menuName;
 
+        private String content;
+
         @Schema(description = "대표 이미지", example = "https://image.url")
         private String image;
+
+        private String recipeTime;
 
         @Schema(description = "게시글 공개 상태", example = "RECIPE_PUBLIC")
         private RecipeBoard.RecipeStatus recipeStatus;
@@ -91,12 +107,12 @@ public class RecipeBoardDto {
         private RecipeBoard.RecipeBoardStatus recipeBoardStatus;
 
         @Schema(description = "작성자 닉네임", example = "요리왕김요리")
-        private String nickName;
+        private String nickName; // member.getNickName()이랑 매핑 필요
 
         @Schema(description = "작성 일시", example = "2024-04-08T12:34:56")
         private LocalDateTime createdAt;
 
         @Schema(description = "레시피 단계 리스트")
-        private List<RecipeStepDetailDto.Response> recipeSteps;
+        private List<RecipeStepDetailDto.Response> recipeBoardSteps;
     }
 }

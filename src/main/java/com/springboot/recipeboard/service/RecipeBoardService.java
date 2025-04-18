@@ -24,8 +24,13 @@ public class RecipeBoardService {
     }
 
     // 게시글 등록
-    public RecipeBoard createRecipeBoard(RecipeBoard recipeBoard, long memberId) {
-        return null;
+    public RecipeBoard createRecipeBoard(RecipeBoard recipeBoard) {
+        // 검증 추후 로직 추가 필요함 일단 저장부터
+        // 레시피 스텝 검증 및 설정
+
+        // 레시피 재료 검증 및 설정
+
+        return recipeBoardRepository.save(recipeBoard);
     }
 
     // 게시글 수정

@@ -9,6 +9,14 @@ public class IngredientDto {
     @Getter
     @Setter
     @NoArgsConstructor
+    public static class IdRequest {
+        private long ingredientId;
+        private String type;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
     public static class Post {
         private String ingredientName;
         private String image;

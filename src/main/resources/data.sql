@@ -1,118 +1,250 @@
--- Member 더미 데이터 (member_id = 1)
-INSERT INTO member (
-    login_id,
-    email,
-    nick_name,
-    password,
-    phone_number,
-    profile,
-    title,
-    rice_point,
-    member_status,
-    created_at,
-    modified_at
-) VALUES (
-    'a',
-    'a@a.a',
-    '택택',
-    '{bcrypt}$2a$10$6aygq.9x2nV/LovgTEoIXO2D/jj.kWajHSVoHXLGUVRk50DhinRya', -- "qwerasdf1!"
-    '010-1111-2222',
-    'https://example.com/profile1.png',
-    '요리왕',
-    300,
-    'MEMBER_ACTIVE',
-    CURRENT_TIMESTAMP,
-    CURRENT_TIMESTAMP
-);
+--     '{bcrypt}$2a$10$6aygq.9x2nV/LovgTEoIXO2D/jj.kWajHSVoHXLGUVRk50DhinRya', -- "qwerasdf1!"
+INSERT INTO member (login_id, email, nick_name, password, phone_number, profile, title, rice_point, member_status, created_at, modified_at) VALUES
+                                                                                                                                                ( 'user1', 'user1@example.com', '정희', 'NtIxqr4_&0', '052-115-7815', 'https://example.com/profiles/user1.jpg', NULL, 49, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user2', 'user2@example.com', '진우', 'KQ%3tRopk)', '070-5139-3328', 'https://example.com/profiles/user2.jpg', NULL, 97, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user3', 'user3@example.com', '현우', '(Se5mQpWV@', '052-232-0947', 'https://example.com/profiles/user3.jpg', NULL, 53, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user4', 'user4@example.com', '민재', 'osuS2eEbo_', '063-515-9179', 'https://example.com/profiles/user4.jpg', NULL, 5, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user5', 'user5@example.com', '숙자', 'xAF0J%jp$3', '033-399-1615', 'https://example.com/profiles/user5.jpg', NULL, 33, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user6', 'user6@example.com', '정순', '2@f0TacSXn', '061-208-7091', 'https://example.com/profiles/user6.jpg', NULL, 65, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user7', 'user7@example.com', '영희', 's3sUI3ik&l', '062-207-6984', 'https://example.com/profiles/user7.jpg', NULL, 62, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user8', 'user8@example.com', '순자', 'dL4gE)rNX&', '070-6109-3523', 'https://example.com/profiles/user8.jpg', NULL, 51, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user9', 'user9@example.com', '영수', 'WIHdIb$v*6', '031-754-7063', 'https://example.com/profiles/user9.jpg', NULL, 100, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                ( 'user10', 'user10@example.com', '민지', 'z_c1Xf!mRe', '051-217-6104', 'https://example.com/profiles/user10.jpg', NULL, 38, 'MEMBER_ACTIVE', '2024-01-01 10:00:00', '2024-01-02 10:00:00');
 
--- ROLE (ElementCollection은 별도 테이블로 관리됨, 기본값 "ROLE_USER")
-INSERT INTO member_roles (member_member_id, roles) VALUES (1, 'USER');
---
--- INSERT INTO menu_category (
---     menu_category_id,
---     menu_category_name
--- ) VALUES
--- (1, '한식'),
--- (2, '중식'),
--- (3, '일식'),
--- (4, '양식'),
--- (5, '기타');
---
--- INSERT INTO menu (
---     menu_id,
---     menu_name,
---     description,
---     image,
---     menu_category_id,
---     created_at,
---     modified_at
--- ) VALUES
--- (1, '김치찌개', '얼큰한 김치로 끓인 찌개', 'https://example.com/image1.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (2, '계란찜', '부드러운 달걀찜', 'https://example.com/image2.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (3, '미역국', '소고기와 미역의 조화', 'https://example.com/image3.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (4, '김밥', '간편한 한끼 도시락', 'https://example.com/image4.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (5, '닭볶음탕', '매콤한 닭 요리', 'https://example.com/image5.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (6, '스팸마요덮밥', '스팸과 마요의 만남', 'https://example.com/image6.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (7, '소세지야채볶음', '아이들이 좋아하는 반찬', 'https://example.com/image7.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (8, '된장찌개', '구수한 전통 찌개', 'https://example.com/image8.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (9, '오므라이스', '계란으로 덮은 볶음밥', 'https://example.com/image9.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (10, '카레', '향신료 가득한 인기 메뉴', 'https://example.com/image10.jpg', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
---
--- INSERT INTO recipe_board (
---     recipe_board_id,
---     title,
---     menu_name,
---     content,
---     image,
---     recipe_time,
---     recipe_status,
---     recipe_board_status,
---     member_id,
---     menu_id,
---     created_at,
---     modified_at
--- ) VALUES
--- (1, '간단한 김치찌개 레시피', '김치찌개', '맛있는 김치찌개 끓이는 법', 'https://example.com/image1.jpg', '30분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (2, '초간단 계란찜 만들기', '계란찜', '계란 3개만으로 부드러운 찜 완성', 'https://example.com/image2.jpg', '10분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (3, '소고기 미역국 황금 레시피', '미역국', '미역과 고기 양 조절이 포인트!', 'https://example.com/image3.jpg', '40분', 'RECIPE_PRIVATE', 'RECIPE_BOARD_POST', 1, 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (4, '참치김밥 만들기', '김밥', '도시락 필수 메뉴 참치김밥 레시피', 'https://example.com/image4.jpg', '25분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (5, '닭볶음탕 매콤하게 끓이기', '닭볶음탕', '매콤 달달한 양념이 포인트', 'https://example.com/image5.jpg', '45분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (6, '스팸마요덮밥 뚝딱 완성!', '스팸마요덮밥', '혼밥에 딱 좋은 레시피', 'https://example.com/image6.jpg', '15분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (7, '소세지야채볶음 간단 반찬', '소세지야채볶음', '밥도둑 반찬 레시피', 'https://example.com/image7.jpg', '20분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (8, '된장찌개 고소하고 깊은맛', '된장찌개', '집밥 필수 찌개 레시피', 'https://example.com/image8.jpg', '30분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 8, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (9, '오므라이스 부드럽고 고소하게', '오므라이스', '계란이 반쯤 익었을 때가 포인트!', 'https://example.com/image9.jpg', '20분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 9, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
--- (10, '카레라이스 정석 레시피', '카레', '남녀노소 좋아하는 국민 요리', 'https://example.com/image10.jpg', '35분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 1, 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
---
--- INSERT INTO recipe_step (
---     recipe_step_id, description, image, stem_number, recipe_board_id
--- ) VALUES
--- (1, '계란을 풀어줍니다.', 'https://example.com/step_image1.jpg', 1, 1),
--- (2, '계란을 풀어줍니다.', 'https://example.com/step_image2.jpg', 2, 1),
--- (3, '양파를 채 썰어줍니다.', 'https://example.com/step_image3.jpg', 3, 1),
--- (4, '그릇에 담아 마무리합니다.', 'https://example.com/step_image4.jpg', 1, 2),
--- (5, '그릇에 담아 마무리합니다.', 'https://example.com/step_image5.jpg', 2, 2),
--- (6, '예쁘게 플레이팅 합니다.', 'https://example.com/step_image6.jpg', 3, 2),
--- (7, '계란을 풀어줍니다.', 'https://example.com/step_image7.jpg', 1, 3),
--- (8, '고기를 넣고 익힙니다.', 'https://example.com/step_image8.jpg', 2, 3),
--- (9, '재료를 준비합니다.', 'https://example.com/step_image9.jpg', 3, 3),
--- (10, '김치를 넣고 볶아줍니다.', 'https://example.com/step_image10.jpg', 1, 4),
--- (11, '재료를 준비합니다.', 'https://example.com/step_image11.jpg', 2, 4),
--- (12, '밥 위에 얹어줍니다.', 'https://example.com/step_image12.jpg', 3, 4),
--- (13, '김치를 넣고 볶아줍니다.', 'https://example.com/step_image13.jpg', 1, 5),
--- (14, '김치를 넣고 볶아줍니다.', 'https://example.com/step_image14.jpg', 2, 5),
--- (15, '예쁘게 플레이팅 합니다.', 'https://example.com/step_image15.jpg', 3, 5),
--- (16, '밥 위에 얹어줍니다.', 'https://example.com/step_image16.jpg', 1, 6),
--- (17, '계란을 풀어줍니다.', 'https://example.com/step_image17.jpg', 2, 6),
--- (18, '예쁘게 플레이팅 합니다.', 'https://example.com/step_image18.jpg', 3, 6),
--- (19, '밥 위에 얹어줍니다.', 'https://example.com/step_image19.jpg', 1, 7),
--- (20, '예쁘게 플레이팅 합니다.', 'https://example.com/step_image20.jpg', 2, 7),
--- (21, '재료를 준비합니다.', 'https://example.com/step_image21.jpg', 3, 7),
--- (22, '재료를 준비합니다.', 'https://example.com/step_image22.jpg', 1, 8),
--- (23, '고기를 넣고 익힙니다.', 'https://example.com/step_image23.jpg', 2, 8),
--- (24, '그릇에 담아 마무리합니다.', 'https://example.com/step_image24.jpg', 3, 8),
--- (25, '예쁘게 플레이팅 합니다.', 'https://example.com/step_image25.jpg', 1, 9),
--- (26, '고기를 넣고 익힙니다.', 'https://example.com/step_image26.jpg', 2, 9),
--- (27, '밥 위에 얹어줍니다.', 'https://example.com/step_image27.jpg', 3, 9),
--- (28, '고기를 넣고 익힙니다.', 'https://example.com/step_image28.jpg', 1, 10),
--- (29, '김치를 넣고 볶아줍니다.', 'https://example.com/step_image29.jpg', 2, 10),
--- (30, '재료를 준비합니다.', 'https://example.com/step_image30.jpg', 3, 10);
+INSERT INTO member_roles (member_member_id, roles) VALUES
+                                                       (1, 'USER'),
+                                                       (2, 'USER'),
+                                                       (3, 'USER'),
+                                                       (4, 'USER'),
+                                                       (5, 'USER'),
+                                                       (6, 'USER'),
+                                                       (7, 'USER'),
+                                                       (8, 'USER'),
+                                                       (9, 'USER'),
+                                                       (10, 'USER');
+
+INSERT INTO menu_category (menu_category_name, created_at, modified_at) VALUES
+                                                                            ( '카테고리1', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( '카테고리2', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( '카테고리3', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( '카테고리4', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( '카테고리5', '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO menu (menu_name, description, image, menu_category_id, created_at, modified_at) VALUES
+                                                                                                ( '메뉴1', '메뉴1에 대한 설명입니다.', 'https://example.com/menus/menu1.jpg', 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴2', '메뉴2에 대한 설명입니다.', 'https://example.com/menus/menu2.jpg', 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴3', '메뉴3에 대한 설명입니다.', 'https://example.com/menus/menu3.jpg', 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴4', '메뉴4에 대한 설명입니다.', 'https://example.com/menus/menu4.jpg', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴5', '메뉴5에 대한 설명입니다.', 'https://example.com/menus/menu5.jpg', 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴6', '메뉴6에 대한 설명입니다.', 'https://example.com/menus/menu6.jpg', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴7', '메뉴7에 대한 설명입니다.', 'https://example.com/menus/menu7.jpg', 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴8', '메뉴8에 대한 설명입니다.', 'https://example.com/menus/menu8.jpg', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴9', '메뉴9에 대한 설명입니다.', 'https://example.com/menus/menu9.jpg', 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                ( '메뉴10', '메뉴10에 대한 설명입니다.', 'https://example.com/menus/menu10.jpg', 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO recipe_board (title, menu_name, content, image, recipe_time, recipe_status, recipe_board_status, member_id, menu_id, created_at, modified_at) VALUES
+                                                                                                                                                              ( '레시피1', '메뉴1', '1번째 레시피 내용', 'https://example.com/recipes/recipe1.jpg', '11분', 'RECIPE_PRIVATE', 'RECIPE_BOARD_POST', 5, 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피2', '메뉴2', '2번째 레시피 내용', 'https://example.com/recipes/recipe2.jpg', '12분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 10, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피3', '메뉴3', '3번째 레시피 내용', 'https://example.com/recipes/recipe3.jpg', '13분', 'RECIPE_PRIVATE', 'RECIPE_BOARD_POST', 5, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피4', '메뉴4', '4번째 레시피 내용', 'https://example.com/recipes/recipe4.jpg', '14분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 2, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피5', '메뉴5', '5번째 레시피 내용', 'https://example.com/recipes/recipe5.jpg', '15분', 'RECIPE_PRIVATE', 'RECIPE_BOARD_POST', 8, 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피6', '메뉴6', '6번째 레시피 내용', 'https://example.com/recipes/recipe6.jpg', '16분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 2, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피7', '메뉴7', '7번째 레시피 내용', 'https://example.com/recipes/recipe7.jpg', '17분', 'RECIPE_PRIVATE', 'RECIPE_BOARD_POST', 7, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피8', '메뉴8', '8번째 레시피 내용', 'https://example.com/recipes/recipe8.jpg', '18분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 10, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피9', '메뉴9', '9번째 레시피 내용', 'https://example.com/recipes/recipe9.jpg', '19분', 'RECIPE_PRIVATE', 'RECIPE_BOARD_POST', 9, 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                              ( '레시피10', '메뉴10', '10번째 레시피 내용', 'https://example.com/recipes/recipe10.jpg', '20분', 'RECIPE_PUBLIC', 'RECIPE_BOARD_POST', 8, 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO bookmark (member_id, recipe_board_id, created_at, modified_at) VALUES
+                                                                               ( 5, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 9, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 2, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 1, 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 8, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 4, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 2, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 10, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 4, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                               ( 9, 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO collection (custom_category_name, collection_status, member_id, created_at, modified_at) VALUES
+                                                                                                         ( '도감카테고리1', 'PRIVATE', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리2', 'PUBLIC', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리3', 'PRIVATE', 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리4', 'PUBLIC', 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리5', 'PRIVATE', 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리6', 'PUBLIC', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리7', 'PRIVATE', 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리8', 'PUBLIC', 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리9', 'PRIVATE', 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( '도감카테고리10', 'PUBLIC', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO collection_item (name, image, collection_id, created_at, modified_at) VALUES
+                                                                                      ( '아이템1', 'https://example.com/items/item1.jpg', 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템2', 'https://example.com/items/item2.jpg', 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템3', 'https://example.com/items/item3.jpg', 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템4', 'https://example.com/items/item4.jpg', 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템5', 'https://example.com/items/item5.jpg', 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템6', 'https://example.com/items/item6.jpg', 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템7', 'https://example.com/items/item7.jpg', 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템8', 'https://example.com/items/item8.jpg', 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템9', 'https://example.com/items/item9.jpg', 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '아이템10', 'https://example.com/items/item10.jpg', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO challenge_category (challenge_category_name, created_at, modified_at) VALUES
+                                                                                      ( '도전분류1', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '도전분류2', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '도전분류3', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '도전분류4', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                      ( '도전분류5', '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO title (title_name, description, color_code, created_at, modified_at) VALUES
+                                                                                     ( '칭호1', '1번째 칭호 설명', '#FF0100', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호2', '2번째 칭호 설명', '#FF0200', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호3', '3번째 칭호 설명', '#FF0300', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호4', '4번째 칭호 설명', '#FF0400', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호5', '5번째 칭호 설명', '#FF0500', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호6', '6번째 칭호 설명', '#FF0600', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호7', '7번째 칭호 설명', '#FF0700', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호8', '8번째 칭호 설명', '#FF0800', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호9', '9번째 칭호 설명', '#FF0900', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                     ( '칭호10', '10번째 칭호 설명', '#FF1000', '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO challenge (challenge_name, description, goal_count, difficulty_level, challenge_status, title_id, challenge_category_id, created_at, modified_at) VALUES
+                                                                                                                                                                  ( '도전과제1', '1번째 도전 설명', 10, 4, 'INCOMPLETE', 1, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제2', '2번째 도전 설명', 10, 2, 'COMPLETE', 2, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제3', '3번째 도전 설명', 3, 2, 'INCOMPLETE', 3, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제4', '4번째 도전 설명', 1, 5, 'COMPLETE', 4, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제5', '5번째 도전 설명', 8, 1, 'INCOMPLETE', 5, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제6', '6번째 도전 설명', 3, 2, 'COMPLETE', 6, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제7', '7번째 도전 설명', 2, 5, 'INCOMPLETE', 7, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제8', '8번째 도전 설명', 9, 3, 'COMPLETE', 8, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제9', '9번째 도전 설명', 4, 2, 'INCOMPLETE', 9, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                                                  ( '도전과제10', '10번째 도전 설명', 7, 5, 'COMPLETE', 10, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO member_challenge (member_id, challenge_id, created_at, modified_at) VALUES
+                                                                                    ( 8, 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 6, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 6, 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 2, 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 10, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 4, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 1, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 2, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 6, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                    ( 6, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO theme (theme_name, description, preview_image, price, theme_status, created_at, modified_at) VALUES
+                                                                                                             ( '테마1', '테마1 설명', 'https://example.com/themes/theme1.jpg', 4341, 'BASIC', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                             ( '테마2', '테마2 설명', 'https://example.com/themes/theme2.jpg', 1254, 'BASIC', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                             ( '테마3', '테마3 설명', 'https://example.com/themes/theme3.jpg', 1412, 'BASIC', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                             ( '테마4', '테마4 설명', 'https://example.com/themes/theme4.jpg', 4207, 'BASIC', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                             ( '테마5', '테마5 설명', 'https://example.com/themes/theme5.jpg', 1599, 'BASIC', '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO member_theme (member_id, theme_id, created_at, modified_at) VALUES
+                                                                            ( 4, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 10, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 10, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 1, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 4, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 10, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 7, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 6, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 1, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 1, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO member_title (member_id, title_id, created_at, modified_at) VALUES
+                                                                            ( 3, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 8, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 1, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 9, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 10, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 5, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 4, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 5, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 7, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                            ( 1, 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO payment (amount, rice_amount, requested_at, completed_at, refund_reason, payment_status, member_id, created_at, modified_at) VALUES
+                                                                                                                                             ( 8653, 15, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유1', 'COMPLETED', 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 2653, 99, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유2', 'COMPLETED', 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 4266, 43, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유3', 'COMPLETED', 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 8704, 82, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유4', 'COMPLETED', 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 4332, 17, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유5', 'COMPLETED', 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 3653, 53, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유6', 'COMPLETED', 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 5107, 25, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유7', 'COMPLETED', 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 8246, 95, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유8', 'COMPLETED', 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 1216, 70, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유9', 'COMPLETED', 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                                             ( 9332, 49, '2025-04-18 03:14:15', '2025-04-18 03:14:15', '사유10', 'COMPLETED', 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO ingredient (ingredient_name, image, main_category, sub_category, dtype) VALUES
+                                                                                        ( '주재료1', 'https://example.com/ingredients/main1.jpg', '채소', '잎채소', 'MAIN'),
+                                                                                        ( '주재료2', 'https://example.com/ingredients/main2.jpg', '채소', '잎채소', 'MAIN'),
+                                                                                        ( '주재료3', 'https://example.com/ingredients/main3.jpg', '채소', '잎채소', 'MAIN'),
+                                                                                        ( '주재료4', 'https://example.com/ingredients/main4.jpg', '채소', '잎채소', 'MAIN'),
+                                                                                        ( '주재료5', 'https://example.com/ingredients/main5.jpg', '채소', '잎채소', 'MAIN'),
+                                                                                        ( '조미료6', 'https://example.com/ingredients/season6.jpg', '양념', '액상', 'SEASONING'),
+                                                                                        ( '조미료7', 'https://example.com/ingredients/season7.jpg', '양념', '액상', 'SEASONING'),
+                                                                                        ( '조미료8', 'https://example.com/ingredients/season8.jpg', '양념', '액상', 'SEASONING'),
+                                                                                        ( '조미료9', 'https://example.com/ingredients/season9.jpg', '양념', '액상', 'SEASONING'),
+                                                                                        ( '조미료10', 'https://example.com/ingredients/season10.jpg', '양념', '액상', 'SEASONING');
+
+INSERT INTO menu_ingredient (menu_id, ingredient_id, created_at, modified_at) VALUES
+                                                                                  ( 7, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 3, 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 1, 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 2, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 1, 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 5, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 4, 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 6, 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 5, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                  ( 10, 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO recipe_board_ingredient (recipe_board_id, ingredient_id, created_at, modified_at) VALUES
+                                                                                                  ( 3, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 7, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 2, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 10, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 6, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 4, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 8, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 10, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 1, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                  ( 10, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO recipe_step (title, created_at, modified_at) VALUES
+                                                             ( '스텝제목1', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목2', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목3', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목4', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목5', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목6', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목7', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목8', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목9', '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                             ( '스텝제목10', '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO recipe_board_step (step_order, recipe_board_id, recipe_step_id, created_at, modified_at) VALUES
+                                                                                                         ( 1, 1, 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 2, 3, 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 3, 8, 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 4, 2, 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 5, 5, 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 6, 3, 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 7, 8, 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 8, 9, 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 9, 8, 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                         ( 10, 9, 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+
+INSERT INTO recipe_step_detail (detail_order_number, description, image, recipe_board_step_id, created_at, modified_at) VALUES
+                                                                                                                            ( 1, '1번째 단계 설명', 'https://example.com/steps/detail1.jpg', 1, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 2, '2번째 단계 설명', 'https://example.com/steps/detail2.jpg', 2, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 3, '3번째 단계 설명', 'https://example.com/steps/detail3.jpg', 3, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 4, '4번째 단계 설명', 'https://example.com/steps/detail4.jpg', 4, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 5, '5번째 단계 설명', 'https://example.com/steps/detail5.jpg', 5, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 6, '6번째 단계 설명', 'https://example.com/steps/detail6.jpg', 6, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 7, '7번째 단계 설명', 'https://example.com/steps/detail7.jpg', 7, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 8, '8번째 단계 설명', 'https://example.com/steps/detail8.jpg', 8, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 9, '9번째 단계 설명', 'https://example.com/steps/detail9.jpg', 9, '2024-01-01 10:00:00', '2024-01-02 10:00:00'),
+                                                                                                                            ( 10, '10번째 단계 설명', 'https://example.com/steps/detail10.jpg', 10, '2024-01-01 10:00:00', '2024-01-02 10:00:00');
+

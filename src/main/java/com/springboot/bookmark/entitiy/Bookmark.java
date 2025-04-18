@@ -1,5 +1,6 @@
 package com.springboot.bookmark.entitiy;
 
+import com.springboot.audit.BaseEntity;
 import com.springboot.member.entity.Member;
 import com.springboot.recipeboard.entity.RecipeBoard;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Bookmark {
+public class Bookmark extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long bookmarkId;

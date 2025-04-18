@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
+import java.net.URI;
 
 @Tag(name = "레시피 게시판 컨트롤러", description = "레시피 게시글 관련 컨트롤러")
 @RestController
@@ -26,6 +27,7 @@ import javax.validation.constraints.Positive;
 public class RecipeBoardController {
     private final RecipeBoardService recipeBoardService;
     private final RecipeBoardMapper mapper;
+    private static final String RECIPE_BOARD_URI = "recipes/";
 
     public RecipeBoardController(RecipeBoardService recipeBoardService, RecipeBoardMapper mapper) {
         this.recipeBoardService = recipeBoardService;
@@ -41,11 +43,15 @@ public class RecipeBoardController {
     public ResponseEntity postRecipeBoard(@Valid @RequestBody RecipeBoardDto.Post recipeBoardPostDto,
                                           @Parameter(hidden = true) @AuthenticationPrincipal Member member) {
         // Post Controller 로직 작성 해야함
-        RecipeBoard recipeBoard = mapper.recipeBoardPostDtoToRecipeBoard(recipeBoardPostDto);
+        member = new Member(); // 임시로 Member 객체 생성
+        member.setMemberId(1L); // 임시로 memberId 설정
+        RecipeBoard recipeBoard = mapper.recipeBoardPostDtoToRecipeBoard(recipeBoardPostDto, member.getMemberId());
 
-        recipeBoardService.createRecipeBoard(recipeBoard, member.getMemberId());
+        RecipeBoard createdRecipeBoard = recipeBoardService.createRecipeBoard(recipeBoard);
+        // RecipeBoard 생성 후, 생성된 RecipeBoard ID를 응답으로 반환
+        URI location = URI.create(RECIPE_BOARD_URI + createdRecipeBoard.getRecipeBoardId());
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return ResponseEntity.created(location).build();
     }
 
     @Operation(summary = "레시피 게시글 수정", description = "레시피 게시글을 수정합니다.")

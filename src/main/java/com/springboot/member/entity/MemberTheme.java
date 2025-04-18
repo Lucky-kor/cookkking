@@ -1,5 +1,6 @@
 package com.springboot.member.entity;
 
+import com.springboot.audit.BaseEntity;
 import com.springboot.theme.entity.Theme;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-public class MemberTheme {
+public class MemberTheme extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long memberThemeId;
